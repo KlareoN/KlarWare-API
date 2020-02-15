@@ -7,7 +7,7 @@ client.EventCallback
   -- callback name, function
 client.EventCallback("on_paint", function ()
   -- code
-  end
+  end)
  
   ```
 --------------------------------
