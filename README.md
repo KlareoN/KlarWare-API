@@ -1,11 +1,18 @@
 # KlarWare-API
 [client.EventCallback](#clienteventcallback)
+
 [client.RunLua](#clientrunlua)
+
 [cvar.FindCvar](#cvarfindcvar)
+
 [convar.getint](#convargetint)
+
 [convar.setint](#convarsetint)
+
 [convar.getfloat](#convargetfloat)
+
 [convar.setfloat](#convarsetfloat)
+
 [convar.setchar](#convarsetchar)
 
 client.EventCallback
