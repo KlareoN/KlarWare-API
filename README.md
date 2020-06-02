@@ -2,27 +2,64 @@
 [client.EventCallback](#clienteventcallback)
 
 [client.RunLua](#clientrunlua)
+----------------------------------------------------------------
+[cvar.AllocateDLLIdentifier](#cvarallocatedllIdentifier)
 
-[cvar.FindCvar](#cvarfindcvar)
+[cvar.RegisterConCommand](#cvarregisterconcommand)
 
-[convar.getint](#convargetint)
+[cvar.UnregisterConCommand](#cvarunregisterconcommand)
 
-[convar.setint](#convarsetint)
+[cvar.UnregisterConCommands](#cvarunregisterconcommands)
 
-[convar.getfloat](#convargetfloat)
+[cvar.GetCommandLineValue](#cvargetcommandlinevalue)
 
-[convar.setfloat](#convarsetfloat)
+[cvar.FindCommandBase](#cvarfindcommandbase)
 
-[convar.setchar](#convarsetchar)
+[cvar.FindVar](#cvarfindvar)
+
+[cvar.FindCommand](#cvarfindcommand)
+
+[cvar.InstallGlobalChangeCallback](#cvarinstallglobalchangecallback)
+
+[cvar.RemoveGlobalChangeCallback](#cvarremoveglobalchangecallback)
+
+[cvar.CallGlobalChangeCallbacks](#cvarcallglobalchangecallbacks)
+
+[cvar.InstallConsoleDisplayFunc](#cvarinstallconsoledisplayfunc)
+
+[cvar.RemoveConsoleDisplayFunc](#cvarremoveconsoledisplayfunc)
+
+[cvar.ConsoleColorPrintf](#cvarconsolecolorprintf)
+
+[cvar.ConsolePrintf](#cvarconsoleprintf)
+
+[cvar.ConsoleDPrintf](#cvarconsoledprintf)
+
+[cvar.RevertFlaggedConVars](#cvarrevertflaggedconvars)
+----------------------------------------------------------------
+
+[convar.SetInt](#convarsetint)
+
+[convar.SetFloat](#convarsetfloat)
+
+[convar.GetInt](#convargetint)
+
+[convar.GetFloat](#convargetfloat)
+
+----------------------------------------------------------------
 
 client.EventCallback
 --------------------------------
   ```lua
   -- callback name, function
-client.EventCallback("on_paint", function ()
+client.EventCallback("PaintTraverse", function ()
   -- code
   end)
- 
+  -- callback name
+  PaintTraverse()
+  CreateMove(cmd)
+  OverrideView(vsView)
+  FrameStageNotify(stage)
   ```
 --------------------------------
 client.RunLua
@@ -32,57 +69,176 @@ client.RunLua
 client.RunLua("test.lua")
   ```
 --------------------------------
-cvar.FindCvar
+cvar.AllocateDLLIdentifier
 --------------------------------
   ```lua
-  -- cvar name
-client.FindCvar("bot_stop")
+cvar.AllocateDLLIdentifier()
   ```
 --------------------------------
-convar.getint
+cvar.RegisterConCommand
 --------------------------------
   ```lua
-  -- convar name
-convar.getint("bot_stop")
-  -- example:
-  test = convar.getint("bot_stop")
-  print(test)
+  -- command name
+cvar.RegisterConCommand(command)
+
   ```
 --------------------------------
-convar.setint
+cvar.UnregisterConCommand
 --------------------------------
   ```lua
-  -- convar name, value
-convar.setint("bot_stop", 1)
-  -- example:
-	bot_stop = cvar.FindCvar("bot_stop")
-	convar.setint(bot_stop, 1)
+  -- command name
+cvar.UnregisterConCommand(command)
+
   ```
 --------------------------------
-convar.getfloat
+cvar.UnregisterConCommands
 --------------------------------
   ```lua
-  -- convar name
-convar.getfloat("snd_mvp_volume")
-  -- example:
-  test = convar.getfloat("snd_mvp_volume")
-  print(test)
+cvar.UnregisterConCommands(id)
+
   ```
 --------------------------------
-convar.setfloat
+cvar.GetCommandLineValue
 --------------------------------
   ```lua
-  -- convar name,  value
-convar.setfloat("snd_mvp_volume", 0.3)
-  -- example:
-	snd_mvp_volume = cvar.FindCvar("snd_mvp_volume")
-	convar.setfloat(bot_stop, 0.3)
+  -- VariableName name
+cvar.GetCommandLineValue(VariableName)
+
   ```
 --------------------------------
-convar.setchar
+cvar.FindCommandBase
 --------------------------------
   ```lua
-  -- convar name, name
-convar.setchar("jpeg", "mirage.jpg")
+  -- name
+cvar.FindCommandBase(name)
+
   ```
 --------------------------------
+cvar.FindVar
+--------------------------------
+  ```lua
+  -- var_name name
+cvar.FindVar(var_name)
+
+  ```
+--------------------------------
+cvar.FindCommand
+--------------------------------
+  ```lua
+  -- name
+cvar.FindCommand(name)
+
+  ```
+--------------------------------
+cvar.InstallGlobalChangeCallback
+--------------------------------
+  ```lua
+  -- callback name
+cvar.InstallGlobalChangeCallback(callback)
+
+  ```
+--------------------------------
+cvar.RemoveGlobalChangeCallback
+--------------------------------
+  ```lua
+  -- callback name
+cvar.RemoveGlobalChangeCallback(callback)
+
+  ```
+--------------------------------
+cvar.CallGlobalChangeCallbacks
+--------------------------------
+  ```lua
+  -- var, pOldString, flOldValue
+cvar.CallGlobalChangeCallbacks(var, pOldString, flOldValue)
+
+  ```
+--------------------------------
+cvar.InstallConsoleDisplayFunc
+--------------------------------
+  ```lua
+  -- DisplayFunc
+cvar.InstallConsoleDisplayFunc(DisplayFunc)
+
+  ```
+
+--------------------------------
+cvar.RemoveConsoleDisplayFunc
+--------------------------------
+  ```lua
+  -- DisplayFunc
+cvar.RemoveConsoleDisplayFunc(DisplayFunce)
+
+  ```
+
+--------------------------------
+cvar.ConsoleColorPrintf
+--------------------------------
+  ```lua
+  -- Color(255,255,255), name
+cvar.ConsoleColorPrintf(Color, name)
+
+  ```
+
+--------------------------------
+cvar.ConsolePrintf
+--------------------------------
+  ```lua
+  -- name
+cvar.ConsolePrintf(name)
+
+  ```
+
+--------------------------------
+cvar.ConsoleDPrintf
+--------------------------------
+  ```lua
+  -- name
+cvar.ConsoleDPrintf(name)
+
+  ```
+
+--------------------------------
+cvar.RevertFlaggedConVars
+--------------------------------
+  ```lua
+  -- nFlag
+cvar.RevertFlaggedConVars(nFlag)
+
+  ```
+
+--------------------------------
+convar.SetInt
+--------------------------------
+  ```lua
+  -- name, int
+convar.SetInt(name, int)
+
+  ```
+
+--------------------------------
+convar.SetFloat
+--------------------------------
+  ```lua
+  -- name, float
+convar.SetFloat(name, float)
+
+  ```
+
+--------------------------------
+convar.GetInt
+--------------------------------
+  ```lua
+  -- name
+convar.GetInt(name)
+
+  ```
+
+--------------------------------
+convar.GetFloat
+--------------------------------
+  ```lua
+  -- name
+convar.GetFloat(name)
+
+  ```
