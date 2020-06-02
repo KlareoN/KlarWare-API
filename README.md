@@ -2,8 +2,10 @@
 [client.EventCallback](#clienteventcallback)
 
 [client.RunLua](#clientrunlua)
+
+CVAR
 ----------------------------------------------------------------
-[cvar.AllocateDLLIdentifier](#cvarallocatedllIdentifier)
+[cvar.AllocateDLLIdentifier](#cvarallocatedllidentifier)
 
 [cvar.RegisterConCommand](#cvarregisterconcommand)
 
@@ -36,6 +38,8 @@
 [cvar.ConsoleDPrintf](#cvarconsoledprintf)
 
 [cvar.RevertFlaggedConVars](#cvarrevertflaggedconvars)
+
+Convar
 ----------------------------------------------------------------
 
 [convar.SetInt](#convarsetint)
