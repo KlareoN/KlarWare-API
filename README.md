@@ -3,6 +3,22 @@
 
 [client.RunLua](#clientrunlua)
 
+Menu UI
+----------------------------------------------------------------
+[ui.get](#uiget)
+
+[ui.CheckBox](#uicheckbox)
+
+[ui.ColorP](#uicolorp)
+
+[ui.SliderFloat](#uisliderfloat)
+
+[ui.SliderInt](#uisliderint)
+
+[ui.Text](#uitext)
+
+[ui.Button](#uibutton)
+
 CVAR
 ----------------------------------------------------------------
 [cvar.AllocateDLLIdentifier](#cvarallocatedllidentifier)
@@ -72,6 +88,62 @@ client.RunLua
   -- lua name
 client.RunLua("test.lua")
   ```
+--------------------------------
+ui.get
+--------------------------------
+  ```lua
+   -- name variable
+ui.get("my_soft")
+  ```
+
+--------------------------------
+ui.CheckBox
+--------------------------------
+  ```lua
+  -- name, name variable
+ui.CheckBox("test", "c_test")
+  ```
+
+--------------------------------
+ui.ColorP
+--------------------------------
+  ```lua
+  -- name, name variable,  color r, color g, color b, color a(lpha)
+ui.ColorP("my color picker", "cp_test", 255, 255, 255, 255)
+  ```
+
+--------------------------------
+ui.SliderFloat
+--------------------------------
+  ```lua
+  -- name, name variable, min float, max float, format
+ui.SliderFloat("slider float", "f_test", 0.f, 100.f, "%.0f")
+  ```
+
+--------------------------------
+ui.SliderInt
+--------------------------------
+  ```lua
+  -- name, name variable, min int, max int, format
+ui.SliderInt("slider int", "i_test", 0, 100, "%d")
+  ```
+
+--------------------------------
+ui.Text
+--------------------------------
+  ```lua
+  -- name
+ui.Text("text")
+  ```
+
+--------------------------------
+ui.Button
+--------------------------------
+  ```lua
+  -- name, name variable
+ui.Button("button", "b_test")
+  ```
+
 --------------------------------
 cvar.AllocateDLLIdentifier
 --------------------------------
